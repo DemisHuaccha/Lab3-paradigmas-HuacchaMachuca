@@ -31,7 +31,6 @@ public class App {
         lista2.add(f);
         }
         
-        
         /*------------------------*/
         
     }

@@ -5,6 +5,7 @@
 package Lab3.paradigmas.HuacchaMachuca;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,7 +34,7 @@ public class TDAflow{
         return options;
     }
     
-    public ArrayList<TDAoption> addOptions(ArrayList<TDAoption> Options, TDAoption Opt ){
+    public ArrayList<TDAoption> addOptions2(ArrayList<TDAoption> Options, TDAoption Opt ){
         int codeOpt=Opt.getCode();
         TDAoption temp;
         int codeOptions;
@@ -41,13 +42,20 @@ public class TDAflow{
             temp=Options.get(i);
             codeOptions=temp.getCode();
             if(codeOptions==codeOpt){
-                System.out.println("Options Repetida");
+                JOptionPane.showMessageDialog(null,"Option code ya existente");
                 return null;
             }
         }
         Options.add(Opt);
         return Options;
     }
+    
+    public TDAflow addOptions(TDAflow flow, TDAoption a){
+        JOptionPane.showMessageDialog(null,"Agregar Option");
+        flow.addOptions2(flow.getOptions(),a);
+        return flow;
+    }
+    
     
     public void imprimir_flow(TDAflow flow){
         System.out.println("Id: "+flow.getId());
@@ -59,6 +67,13 @@ public class TDAflow{
             a.imprimir_option(a);
         }
     }
-
-    
+    private static ArrayList<String> listaDinamica(){
+        ArrayList<String> lista=new ArrayList();
+        char respuesta;
+        do{
+            lista.add(JOptionPane.showInputDialog("Ingresar key"));
+            respuesta=JOptionPane.showInputDialog("Ingresar mas keys: S/N").charAt(0);
+        }while(respuesta=='s' || respuesta =='S');
+        return lista;
+    }
 }
