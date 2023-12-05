@@ -63,7 +63,6 @@ public class TDAchatbot {
     
     public TDAchatbot addFlow(TDAchatbot chatbot, TDAflow a){
         JOptionPane.showMessageDialog(null,"Agregar Flow");
-        ArrayList<TDAoption> flow=new ArrayList();
         chatbot.addFlow2(chatbot.getFlows(),a);
         return chatbot;
     } 
