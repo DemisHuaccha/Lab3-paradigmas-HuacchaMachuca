@@ -52,8 +52,8 @@ public class TDAflow{
     
     public TDAflow addOptions(TDAflow flow, TDAoption a){
         JOptionPane.showMessageDialog(null,"Agregar Option");
-        flow.addOptions2(flow.getOptions(),a);
-        return flow;
+        ArrayList<TDAoption> newoption = flow.addOptions2(flow.getOptions(),a);
+        return new TDAflow(flow.getId(),flow.getNamemsg(),newoption);
     }
     
     
@@ -67,13 +67,5 @@ public class TDAflow{
             a.imprimir_option(a);
         }
     }
-    private static ArrayList<String> listaDinamica(){
-        ArrayList<String> lista=new ArrayList();
-        char respuesta;
-        do{
-            lista.add(JOptionPane.showInputDialog("Ingresar key"));
-            respuesta=JOptionPane.showInputDialog("Ingresar mas keys: S/N").charAt(0);
-        }while(respuesta=='s' || respuesta =='S');
-        return lista;
-    }
+    
 }

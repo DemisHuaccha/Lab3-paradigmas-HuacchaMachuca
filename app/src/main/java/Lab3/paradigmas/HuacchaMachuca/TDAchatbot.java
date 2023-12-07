@@ -63,20 +63,9 @@ public class TDAchatbot {
     
     public TDAchatbot addFlow(TDAchatbot chatbot, TDAflow a){
         JOptionPane.showMessageDialog(null,"Agregar Flow");
-        chatbot.addFlow2(chatbot.getFlows(),a);
-        return chatbot;
+        ArrayList<TDAflow> newflows=chatbot.addFlow2(chatbot.getFlows(),a);
+        return new TDAchatbot(chatbot.getChatbotid(),chatbot.getName(),chatbot.getWelcomemessage(),chatbot.getStaridflow(),newflows);
     } 
     
-    
-    
-    private static ArrayList<String> listaDinamica(){
-        ArrayList<String> lista=new ArrayList();
-        char respuesta;
-        do{
-            lista.add(JOptionPane.showInputDialog("Ingresar key"));
-            respuesta=JOptionPane.showInputDialog("Ingresar mas keys: S/N").charAt(0);
-        }while(respuesta=='s' || respuesta =='S');
-        return lista;
-    }
     
 }
