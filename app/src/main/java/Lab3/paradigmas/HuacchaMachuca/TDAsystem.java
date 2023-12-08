@@ -60,7 +60,7 @@ public class TDAsystem {
     }
     
   
-    /*
+    
     public ArrayList<TDAuser> addUser2(ArrayList<TDAuser> system, TDAuser a){
         String aName=a.getUsername();
         TDAuser temp;
@@ -70,7 +70,7 @@ public class TDAsystem {
             UserName=temp.getUsername();
             if(UserName.equals(aName)){
                 JOptionPane.showMessageDialog(null,"Username id ya existente");
-                return null;
+                return system;
             }
         }
         system.add(a);
@@ -80,15 +80,47 @@ public class TDAsystem {
     
     
     public TDAsystem addUser(TDAsystem system, TDAuser a){
-        JOptionPane.showMessageDialog(null,"Agregar Flow");
+        JOptionPane.showMessageDialog(null,"Agregar User");
+        String name = JOptionPane.showInputDialog("Name user:");
+        String tipo = JOptionPane.showInputDialog("Tipo de user: ");
         ArrayList<TDAuser> newusers=system.addUser2(system.getUsers(),a);
         
-        return system;
-        
+        return new TDAsystem(system.getName(),system.getInitialchatbotcodelink(),system.getChatbots(),newusers,system.getUserlogin());    
     }
-    */
+    
+    ///////////////////////////////////////////////////////////////////////////////////////
+    
+    public int Mysearch(ArrayList<TDAuser> users, String name){
+        String name2;
+        TDAuser temp;
+        for(int i=0;i<users.size();i++){
+            temp=users.get(i);
+            name2=temp.getUsername();
+            if(name2.equals(name)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    public TDAsystem login(TDAsystem system, String username){
+        if(system.getUserlogin()== null) {
+            ArrayList<TDAuser> users = system.getUsers();
+            int t=Mysearch(users, username);
+            if(t!=-1){
+                return new TDAsystem(system.getName(), system.getInitialchatbotcodelink(), system.getChatbots(), users, users.get(t));
+            }
+            
+        }
+        JOptionPane.showMessageDialog(null,"User name no existente");
+        return null;
+    } 
+    
+    //////////////////////////////////////////////////////////////////////////////////////////
     
     
+    
+    /*////////////////////////////////////Funciones get/////////////////////////////////////*/
 
     public String getName() {
         return name;
