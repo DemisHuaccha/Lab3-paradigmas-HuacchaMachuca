@@ -10,29 +10,7 @@ import javax.swing.JOptionPane;
 public class App {
 
     public static void main(String[] args) {
-        
-        /*Constructor TDAoption test*/
-        int t=Integer.parseInt(JOptionPane.showInputDialog("Cantidad de Options que necesita:"));
-        ArrayList<TDAoption> lista= new ArrayList();
-        for(int i=0;i<t;i++){
-        TDAoption a = new TDAoption(Integer.parseInt(JOptionPane.showInputDialog("Ingresar Code:")), JOptionPane.showInputDialog("Ingresar Message:"), Integer.parseInt(JOptionPane.showInputDialog("Ingresar ChatbotCodelink:")), Integer.parseInt(JOptionPane.showInputDialog("Ingresar InitialFlowCodelink:")), listaDinamica());
-        a.imprimir_option(a);
-        lista.add(a);
-        }
-        
-        /*--------------------------*/
-        
-        /*Constructor TDAflow test*/
-        int t2=Integer.parseInt(JOptionPane.showInputDialog("Cantidad de flows que necesita:"));
-        ArrayList<TDAflow> lista2= new ArrayList();
-        for(int i=0;i<t2;i++){
-        TDAflow f=new TDAflow(Integer.parseInt(JOptionPane.showInputDialog("Ingresar Id:")),JOptionPane.showInputDialog("Ingresar Message:"),lista);
-        f.imprimir_flow(f);
-        lista2.add(f);
-        }
-        
-        /*------------------------*/
-        
+          
     }
     
     private static ArrayList<String> listaDinamica(){

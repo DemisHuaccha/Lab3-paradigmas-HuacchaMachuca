@@ -5,7 +5,6 @@
 package Lab3.paradigmas.HuacchaMachuca;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *

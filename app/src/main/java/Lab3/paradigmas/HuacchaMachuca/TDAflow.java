@@ -5,7 +5,6 @@
 package Lab3.paradigmas.HuacchaMachuca;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,7 +41,7 @@ public class TDAflow{
             temp=Options.get(i);
             codeOptions=temp.getCode();
             if(codeOptions==codeOpt){
-                JOptionPane.showMessageDialog(null,"Option code ya existente");
+                System.out.println("Option code ya existente");
                 return null;
             }
         }
@@ -51,7 +50,6 @@ public class TDAflow{
     }
     
     public TDAflow addOptions(TDAflow flow, TDAoption a){
-        JOptionPane.showMessageDialog(null,"Agregar Option");
         ArrayList<TDAoption> newoption = flow.addOptions2(flow.getOptions(),a);
         return new TDAflow(flow.getId(),flow.getNamemsg(),newoption);
     }

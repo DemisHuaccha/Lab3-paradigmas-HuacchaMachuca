@@ -6,7 +6,6 @@ package Lab3.paradigmas.HuacchaMachuca;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,7 +43,7 @@ public class TDAsystem {
             temp=system.get(i);
             IdChatbot=temp.getChatbotid();
             if(IdChatbot==aId){
-                JOptionPane.showMessageDialog(null,"Chatbot id ya existente");
+                System.out.println("Chatbot id ya existente");
                 return null;
             }
         }
@@ -53,7 +52,7 @@ public class TDAsystem {
     }
     
     public TDAsystem addChatbot(TDAsystem system, TDAchatbot a){
-        JOptionPane.showMessageDialog(null,"Agregar Flow");
+        System.out.println("Agregar Flow");
         ArrayList<TDAchatbot> newchatbots=system.addChatbot2(system.getChatbots(),a);
         return new TDAsystem(system.getName(),system.getInitialchatbotcodelink(),newchatbots);
         
@@ -69,7 +68,7 @@ public class TDAsystem {
             temp=system.get(i);
             UserName=temp.getUsername();
             if(UserName.equals(aName)){
-                JOptionPane.showMessageDialog(null,"Username id ya existente");
+                System.out.println("Username id ya existente");
                 return system;
             }
         }
@@ -80,9 +79,6 @@ public class TDAsystem {
     
     
     public TDAsystem addUser(TDAsystem system, TDAuser a){
-        JOptionPane.showMessageDialog(null,"Agregar User");
-        String name = JOptionPane.showInputDialog("Name user:");
-        String tipo = JOptionPane.showInputDialog("Tipo de user: ");
         ArrayList<TDAuser> newusers=system.addUser2(system.getUsers(),a);
         
         return new TDAsystem(system.getName(),system.getInitialchatbotcodelink(),system.getChatbots(),newusers,system.getUserlogin());    
@@ -112,9 +108,17 @@ public class TDAsystem {
             }
             
         }
-        JOptionPane.showMessageDialog(null,"User name no existente");
+        System.out.println("User name no existente");
         return null;
     } 
+    
+    public TDAsystem Logout(TDAsystem system){
+        if(system.getUserlogin()!=null){
+            return new TDAsystem(system.getName(),system.getInitialchatbotcodelink(), system.getChatbots(), system.getUsers(), null);
+        }
+        System.out.println("No hay user logeado");
+        return system;
+    }
     
     //////////////////////////////////////////////////////////////////////////////////////////
     

@@ -5,7 +5,6 @@
 package Lab3.paradigmas.HuacchaMachuca;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,7 +52,7 @@ public class TDAchatbot {
             temp=Flows.get(i);
             IdFlows=temp.getId();
             if(IdFlows==flowId){
-                JOptionPane.showMessageDialog(null,"Flow id ya existente");
+                System.out.println("Flow id ya existente");
                 return null;
             }
         }
@@ -62,7 +61,6 @@ public class TDAchatbot {
     }
     
     public TDAchatbot addFlow(TDAchatbot chatbot, TDAflow a){
-        JOptionPane.showMessageDialog(null,"Agregar Flow");
         ArrayList<TDAflow> newflows=chatbot.addFlow2(chatbot.getFlows(),a);
         return new TDAchatbot(chatbot.getChatbotid(),chatbot.getName(),chatbot.getWelcomemessage(),chatbot.getStaridflow(),newflows);
     } 
