@@ -5,6 +5,7 @@
 package Lab3.paradigmas.HuacchaMachuca;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,7 +53,7 @@ public class TDAchatbot {
             temp=Flows.get(i);
             IdFlows=temp.getId();
             if(IdFlows==flowId){
-                System.out.println("Flow id ya existente");
+                JOptionPane.showMessageDialog(null, "Flow id ya existente");
                 return null;
             }
         }

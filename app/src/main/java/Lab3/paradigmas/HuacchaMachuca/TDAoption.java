@@ -5,7 +5,6 @@
 package Lab3.paradigmas.HuacchaMachuca;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,15 +51,15 @@ public class TDAoption {
         ArrayList<String> lista= opt.getKeys();
         System.out.println("Keys: ");
         for(int i=0;i<lista.size();i++){
-                System.out.println(lista.get(i));
+                JOptionPane.showMessageDialog(null, lista.get(i));
             }
     }
     
     public void imprimir_option(TDAoption opt){
-        System.out.println("Code: "+opt.getCode());
-        System.out.println("Message: "+opt.getMessage());
-        System.out.println("ChatbotCodelink: "+opt.getChatbotcodelink());
-        System.out.println("InitialflowCodelink: "+opt.getInitialflowcodelink());
+        JOptionPane.showMessageDialog(null, opt.getCode());
+        JOptionPane.showMessageDialog(null, opt.getMessage());
+        JOptionPane.showMessageDialog(null, opt.getChatbotcodelink());
+        JOptionPane.showMessageDialog(null, opt.getInitialflowcodelink());
         opt.imprimir_keys(opt);
     } 
     

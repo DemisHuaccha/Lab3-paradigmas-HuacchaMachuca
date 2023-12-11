@@ -8,11 +8,93 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class App {
+    
+    
+    /*Maim = menu principal*/
 
     public static void main(String[] args) {
-          
+        int t=0;
+        TDAlistas listas=init();
+        JOptionPane.showMessageDialog(null, "Crea el primer system");
+        TDAsystem system=init2(listas.getUsers());
+        /*
+        while(t==0){    
+        
+        }
+        */
     }
     
+    static TDAsystem init2(ArrayList<TDAuser> users){
+        
+        ArrayList<TDAoption> options=new ArrayList();
+        ArrayList<TDAflow> flows=new ArrayList();
+        ArrayList<TDAchatbot> chatbots=new ArrayList();    
+        
+        char respuesta1=JOptionPane.showInputDialog("Crear option: S/N").charAt(0);
+        
+        if(respuesta1=='S' || respuesta1=='s'){
+        TDAoption option;
+        do{
+            option=MenuAdmin.makeOption();
+            options.add(option);
+            respuesta1=JOptionPane.showInputDialog("Ingresar mas options: S/N \n Si se agrega una option con el mismo code se tomara solo el primer option como valido").charAt(0);
+        }while(respuesta1=='s' || respuesta1 =='S');
+        }
+        options=MenuAdmin.LimpiarOpt(options);
+        
+        char respuesta2=JOptionPane.showInputDialog("Crear flow: S/N").charAt(0);
+        
+        if(respuesta2=='s'||respuesta2=='S'){
+        TDAflow flow;
+        do{
+            flow=MenuAdmin.makeFlow(options);
+            flows.add(flow);
+            respuesta2=JOptionPane.showInputDialog("Ingresar mas flows: S/N \n Sigue la misma regla que options").charAt(0);
+        }while(respuesta2=='s' || respuesta2 =='S');
+        }
+        
+        flows=MenuAdmin.LimpiarFlow(flows);
+        
+        char respuesta3=JOptionPane.showInputDialog("Crear chatbot: S/N").charAt(0);
+        
+        if(respuesta3=='s'||respuesta3=='S'){
+        TDAchatbot chatbot;
+        do{
+            chatbot=MenuAdmin.makeChatbot(flows);
+            chatbots.add(chatbot);
+            respuesta3=JOptionPane.showInputDialog("Ingresar mas chatbots: S/N \n Sigue la misma regla que options").charAt(0);
+        }while(respuesta3=='s' || respuesta3 =='S');
+        }
+        
+        chatbots=MenuAdmin.LimpiarChatbot(chatbots);
+        
+        TDAsystem system=MenuAdmin.makeSystem(chatbots);
+        return system;
+    }
+        
+    static TDAlistas init(){
+        ArrayList<TDAoption> options=new ArrayList();
+        ArrayList<TDAflow> flows=new ArrayList();
+        ArrayList<TDAchatbot> chatbots=new ArrayList();
+        ArrayList<TDAuser> users=new ArrayList();
+        
+        /*
+        JOptionPane.showMessageDialog(null, "Inicio");
+        */
+        JOptionPane.showMessageDialog(null, "Inicio: \n Cree Admin User: (se registrara en el primer system creado)");
+        
+        String username=JOptionPane.showInputDialog("Ingresar Admin username");
+        int tipo=0;
+       
+        TDAuser user=new TDAuser(username,tipo);
+        users.add(user);
+        return new TDAlistas(options,flows,chatbots,users);
+    }
+    
+    
+    
+    
+    /*
     private static ArrayList<String> listaDinamica(){
         ArrayList<String> lista=new ArrayList();
         char respuesta;
@@ -22,5 +104,5 @@ public class App {
         }while(respuesta=='s' || respuesta =='S');
         return lista;
     }
-   
+   */
 }

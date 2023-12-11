@@ -6,6 +6,7 @@ package Lab3.paradigmas.HuacchaMachuca;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,7 +44,7 @@ public class TDAsystem {
             temp=system.get(i);
             IdChatbot=temp.getChatbotid();
             if(IdChatbot==aId){
-                System.out.println("Chatbot id ya existente");
+                JOptionPane.showMessageDialog(null, "Chatbot id ya existente");
                 return null;
             }
         }
@@ -52,7 +53,7 @@ public class TDAsystem {
     }
     
     public TDAsystem addChatbot(TDAsystem system, TDAchatbot a){
-        System.out.println("Agregar Flow");
+        JOptionPane.showMessageDialog(null, "Agregar Flow");
         ArrayList<TDAchatbot> newchatbots=system.addChatbot2(system.getChatbots(),a);
         return new TDAsystem(system.getName(),system.getInitialchatbotcodelink(),newchatbots);
         
@@ -68,7 +69,7 @@ public class TDAsystem {
             temp=system.get(i);
             UserName=temp.getUsername();
             if(UserName.equals(aName)){
-                System.out.println("Username id ya existente");
+                JOptionPane.showMessageDialog(null, "Username id ya existente");
                 return system;
             }
         }
@@ -108,7 +109,7 @@ public class TDAsystem {
             }
             
         }
-        System.out.println("User name no existente");
+        JOptionPane.showMessageDialog(null, "User name no existente");
         return null;
     } 
     
@@ -116,7 +117,7 @@ public class TDAsystem {
         if(system.getUserlogin()!=null){
             return new TDAsystem(system.getName(),system.getInitialchatbotcodelink(), system.getChatbots(), system.getUsers(), null);
         }
-        System.out.println("No hay user logeado");
+        JOptionPane.showMessageDialog(null, "No hay user logeado");
         return system;
     }
     

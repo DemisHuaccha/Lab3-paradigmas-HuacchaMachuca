@@ -5,6 +5,7 @@
 package Lab3.paradigmas.HuacchaMachuca;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,7 +42,7 @@ public class TDAflow{
             temp=Options.get(i);
             codeOptions=temp.getCode();
             if(codeOptions==codeOpt){
-                System.out.println("Option code ya existente");
+                JOptionPane.showMessageDialog(null, "Option code ya existente");
                 return null;
             }
         }
@@ -56,8 +57,8 @@ public class TDAflow{
     
     
     public void imprimir_flow(TDAflow flow){
-        System.out.println("Id: "+flow.getId());
-        System.out.println("Name Msg: "+flow.getNamemsg());
+        JOptionPane.showMessageDialog(null, flow.getId());
+        JOptionPane.showMessageDialog(null, flow.getNamemsg());
         ArrayList<TDAoption> opts=flow.getOptions();
         TDAoption a;
         for(int i=0;i<opts.size();i++){

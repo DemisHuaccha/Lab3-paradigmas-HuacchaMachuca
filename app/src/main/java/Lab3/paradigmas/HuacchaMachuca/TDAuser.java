@@ -12,10 +12,10 @@ import java.util.ArrayList;
  */
 public class TDAuser {
     String username;
-    String tipo;
+    int tipo;
     
     
-    public TDAuser(String username, String tipo){
+    public TDAuser(String username, int tipo){
         this.username=username;
         this.tipo=tipo;
     }
@@ -24,7 +24,7 @@ public class TDAuser {
         return username;
     }
 
-    public String getTipo() {
+    public int getTipo() {
         return tipo;
     }
     
