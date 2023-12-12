@@ -15,15 +15,37 @@ public class App {
     public static void main(String[] args) {
         int t=0;
         TDAlistas listas=init();
+        
+        /*
         JOptionPane.showMessageDialog(null, "Crea el primer system");
         listas =init2(listas.getUsers());
+        */
         
+        
+        
+        /**
+        * Menu inicial (no implementado)
+        * despues de logear en un systema el menu inicial redirigira al menu correspondiente del tipo de user es decir admin o comun (no implementado)
+        *
+        */
         while(t==0){
             int a=Integer.parseInt(JOptionPane.showInputDialog("Inicio: \n 1)login \n 2)logout \n 3)register user \n 4) exit"));
+            ArrayList<TDAsystem> temp2;
+            ArrayList<TDAuser> temp3;
+            TDAsystem temp;
             if(a==1){
                 int opt;
+                int opt2;
+                String username;
                 TDAsystem.imprimir_Systems(listas.getSystems());
                 opt=Integer.parseInt(JOptionPane.showInputDialog("Elegir systema"));
+                temp2=listas.getSystems();
+                temp=temp2.get(opt);
+                TDAsystem.imprimir_Names(temp);
+                opt2=Integer.parseInt(JOptionPane.showInputDialog("Elegir user"));
+                temp3=temp.getUsers();
+                username=temp3.get(opt2).getUsername();
+                temp=temp.login(temp, username);
             }
             
             if(a==2){
@@ -96,6 +118,16 @@ public class App {
         ArrayList<TDAflow> flows=new ArrayList();
         ArrayList<TDAchatbot> chatbots=new ArrayList();
         ArrayList<TDAuser> users=new ArrayList();
+        ArrayList<TDAsystem> systems=new ArrayList();
+        ArrayList<String> keys=new ArrayList();
+        keys.add("Inicio");
+        keys.add("exit");
+        TDAoption opt=new TDAoption(0, "Hola", 0,0,keys);
+        options.add(opt);
+        TDAflow flow=new TDAflow(0,"Hola",options);
+        flows.add(flow);
+        TDAchatbot chatbot=new TDAchatbot(0,"Bot Inicial","Bienvenido",0,flows);
+        chatbots.add(chatbot);
         
         /*
         JOptionPane.showMessageDialog(null, "Inicio");
@@ -104,10 +136,11 @@ public class App {
         
         String username=JOptionPane.showInputDialog("Ingresar Admin username");
         int tipo=0;
-       
         TDAuser user=new TDAuser(username,tipo);
         users.add(user);
-        return new TDAlistas(options,flows,chatbots,users);
+        TDAsystem system=new TDAsystem("Systema inicial",0,chatbots,users,null);
+        systems.add(system);
+        return new TDAlistas(options,flows,chatbots,users,systems);
     }
     
     

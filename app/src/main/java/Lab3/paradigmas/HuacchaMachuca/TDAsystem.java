@@ -205,8 +205,16 @@ public class TDAsystem {
     *Metodo que imprime el nombre de cada system en la lista de systems
     */
     
+    static void imprimir_Names(TDAsystem system){
+        JOptionPane.showMessageDialog(null, "Names: ");
+        ArrayList<TDAuser> users=system.getUsers();
+        for(int i=0;i<users.size();i++){
+                JOptionPane.showMessageDialog(null, i+") "+users.get(i).getUsername());
+        }
+    }
+    
     static void imprimir_Systems(ArrayList<TDAsystem> systems){
-        System.out.println("Keys: ");
+        JOptionPane.showMessageDialog(null, "Systems: ");
         for(int i=0;i<systems.size();i++){
                 JOptionPane.showMessageDialog(null, i+") "+systems.get(i).getName());
             }
