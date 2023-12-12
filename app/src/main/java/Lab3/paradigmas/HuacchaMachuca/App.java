@@ -16,15 +16,32 @@ public class App {
         int t=0;
         TDAlistas listas=init();
         JOptionPane.showMessageDialog(null, "Crea el primer system");
-        TDAsystem system=init2(listas.getUsers());
-        /*
-        while(t==0){    
+        listas =init2(listas.getUsers());
         
+        while(t==0){
+            int a=Integer.parseInt(JOptionPane.showInputDialog("Crea el primer system \n 1)login \n 2)logout \n 3)register user \n 4) exit"));
+            if(a==1){
+                int opt;
+                TDAsystem.imprimir_Systems(listas.getSystems());
+                opt=Integer.parseInt(JOptionPane.showInputDialog("Elegir systema"));
+            }
+            
+            if(a==2){
+            
+            }
+            
+            if(a==3){
+            
+            }
+            
+            if(a==4){
+                t=1;
+            }
         }
-        */
+        
     }
     
-    static TDAsystem init2(ArrayList<TDAuser> users){
+    static TDAlistas init2(ArrayList<TDAuser> users){
         
         ArrayList<TDAoption> options=new ArrayList();
         ArrayList<TDAflow> flows=new ArrayList();
@@ -69,7 +86,9 @@ public class App {
         chatbots=MenuAdmin.LimpiarChatbot(chatbots);
         
         TDAsystem system=MenuAdmin.makeSystem(chatbots);
-        return system;
+        ArrayList<TDAsystem> systems=new ArrayList();
+        systems.add(system);
+        return new TDAlistas(options,flows,chatbots,users,systems);
     }
         
     static TDAlistas init(){

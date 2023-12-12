@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Demis
  */
-public class MenuAdmin {
+abstract class MenuAdmin {
     
     static TDAoption makeOption(){
         
@@ -52,7 +52,7 @@ public class MenuAdmin {
     }
     
     static TDAsystem makeSystem(ArrayList<TDAchatbot> chatbots){
-        String name=JOptionPane.showInputDialog("Ingresar name");
+        String name=JOptionPane.showInputDialog("Ingresar System name");
         int initialchatbotcodelink=Integer.parseInt(JOptionPane.showInputDialog("Ingresar initialchatbotcodelink"));
         
         return new TDAsystem(name, initialchatbotcodelink,chatbots);

@@ -15,12 +15,21 @@ public class TDAlistas {
     ArrayList<TDAflow> flows;
     ArrayList<TDAchatbot> chatbots;
     ArrayList<TDAuser> users;
+    ArrayList<TDAsystem> systems;
 
     public TDAlistas(ArrayList<TDAoption> options, ArrayList<TDAflow> flows, ArrayList<TDAchatbot> chatbots, ArrayList<TDAuser> users) {
         this.options = options;
         this.flows = flows;
         this.chatbots = chatbots;
         this.users = users;
+    }
+    
+    public TDAlistas(ArrayList<TDAoption> options, ArrayList<TDAflow> flows, ArrayList<TDAchatbot> chatbots, ArrayList<TDAuser> users, ArrayList<TDAsystem> systems) {
+        this.options = options;
+        this.flows = flows;
+        this.chatbots = chatbots;
+        this.users = users;
+        this.systems=systems;
     }
 
     public ArrayList<TDAoption> getOptions() {
@@ -37,6 +46,10 @@ public class TDAlistas {
 
     public ArrayList<TDAuser> getUsers() {
         return users;
+    }
+
+    public ArrayList<TDAsystem> getSystems() {
+        return systems;
     }
     
     

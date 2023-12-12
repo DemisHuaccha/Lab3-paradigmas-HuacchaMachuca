@@ -49,7 +49,7 @@ public class TDAoption {
     
     public void imprimir_keys(TDAoption opt){
         ArrayList<String> lista= opt.getKeys();
-        System.out.println("Keys: ");
+        JOptionPane.showMessageDialog(null, "Keys: ");
         for(int i=0;i<lista.size();i++){
                 JOptionPane.showMessageDialog(null, lista.get(i));
             }

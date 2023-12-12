@@ -147,7 +147,12 @@ public class TDAsystem {
         return userlogin;
     }
     
-    
+    static void imprimir_Systems(ArrayList<TDAsystem> systems){
+        System.out.println("Keys: ");
+        for(int i=0;i<systems.size();i++){
+                JOptionPane.showMessageDialog(null, i+") "+systems.get(i).getName());
+            }
+    }
     
     
 }
