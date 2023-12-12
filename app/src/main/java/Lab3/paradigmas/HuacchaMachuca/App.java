@@ -19,7 +19,7 @@ public class App {
         listas =init2(listas.getUsers());
         
         while(t==0){
-            int a=Integer.parseInt(JOptionPane.showInputDialog("Crea el primer system \n 1)login \n 2)logout \n 3)register user \n 4) exit"));
+            int a=Integer.parseInt(JOptionPane.showInputDialog("Inicio: \n 1)login \n 2)logout \n 3)register user \n 4) exit"));
             if(a==1){
                 int opt;
                 TDAsystem.imprimir_Systems(listas.getSystems());

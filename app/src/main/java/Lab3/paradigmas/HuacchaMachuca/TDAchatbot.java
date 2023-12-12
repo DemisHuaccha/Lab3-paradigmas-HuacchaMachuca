@@ -45,6 +45,16 @@ public class TDAchatbot {
     public ArrayList<TDAflow> getFlows() {
         return flows;
     }
+    
+    /**
+    *
+    *Funcion addFlow2 tiene dominio como una lista de TDAflow y un flow
+    *tiene como recorrido una lista de TDAflow
+    * Funcion que revisa la unicidad de cada id de los flows
+    *
+    */
+    
+    
     public ArrayList<TDAflow> addFlow2(ArrayList<TDAflow> Flows, TDAflow Flow ){
         int flowId=Flow.getId();
         TDAflow temp;
@@ -60,6 +70,11 @@ public class TDAchatbot {
         Flows.add(Flow);
         return Flows;
     }
+    
+    /**
+    *Funcion addOption que tiene como dominio un TDAchatbot y un TDA flow
+    *addflow tiene como reoorrido un TDAchatbot
+    */
     
     public TDAchatbot addFlow(TDAchatbot chatbot, TDAflow a){
         ArrayList<TDAflow> newflows=chatbot.addFlow2(chatbot.getFlows(),a);

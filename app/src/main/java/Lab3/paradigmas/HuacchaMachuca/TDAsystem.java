@@ -34,6 +34,15 @@ public class TDAsystem {
         this.users= users;
         this.userlogin= userlogin;
     }
+    
+    
+    /**
+    *
+    *Funcion addChatbot2 tiene dominio como una lista de TDAchatbot y un chatbot
+    *tiene como recorrido una lista de TDAchatbot
+    * Funcion que revisa la unicidad de cada id de los chatbots
+    *
+    */
       
 
     public ArrayList<TDAchatbot> addChatbot2(ArrayList<TDAchatbot> system, TDAchatbot a){
@@ -52,6 +61,11 @@ public class TDAsystem {
         return system;
     }
     
+    /**
+    *Funcion addchatbot que tiene como dominio un TDAsystem y un TDA chatbot
+    *addOption tiene como reoorrido un TDAsystem
+    */
+    
     public TDAsystem addChatbot(TDAsystem system, TDAchatbot a){
         JOptionPane.showMessageDialog(null, "Agregar Flow");
         ArrayList<TDAchatbot> newchatbots=system.addChatbot2(system.getChatbots(),a);
@@ -59,7 +73,17 @@ public class TDAsystem {
         
     }
     
-  
+    
+    
+    
+    /**
+    *
+    *Metodo addUser2 tiene dominio como una lista de TDAuser y un user
+    *tiene como recorrido una lista de TDAuser
+    *Metodo que revisa la unicidad de cada name de los users
+    *
+    */
+    
     
     public ArrayList<TDAuser> addUser2(ArrayList<TDAuser> system, TDAuser a){
         String aName=a.getUsername();
@@ -77,7 +101,10 @@ public class TDAsystem {
         return system;
     }
     
-    
+    /**
+    *Metodoadduser que tiene como dominio un TDAsystem y un TDA user
+    *addOption tiene como reoorrido un TDAsystem
+    */
     
     public TDAsystem addUser(TDAsystem system, TDAuser a){
         ArrayList<TDAuser> newusers=system.addUser2(system.getUsers(),a);
@@ -86,6 +113,12 @@ public class TDAsystem {
     }
     
     ///////////////////////////////////////////////////////////////////////////////////////
+    
+    /**
+    *Metodo Mysearch que tiene como dominio una lista de TDAuser y un string
+    *Mysearch tiene como reoorrido un int donde -1 representa que no existe el string en la lista y cualquie otro numero positivo real representa la posicion del nombre en la lista.
+    */
+    
     
     public int Mysearch(ArrayList<TDAuser> users, String name){
         String name2;
@@ -100,6 +133,12 @@ public class TDAsystem {
         return -1;
     }
     
+    /**
+    Metodo login que tiene como dominio un TDAsystem y un string
+    *addOption tiene como reoorrido un TDAsystem con el string logeado
+    */
+    
+    
     public TDAsystem login(TDAsystem system, String username){
         if(system.getUserlogin()== null) {
             ArrayList<TDAuser> users = system.getUsers();
@@ -112,6 +151,11 @@ public class TDAsystem {
         JOptionPane.showMessageDialog(null, "User name no existente");
         return null;
     } 
+    
+    /**
+    *metodo logout que tiene como dominio un TDAsystem
+    *addOption tiene como reoorrido un TDAsystem con el suser logeado = null
+    */
     
     public TDAsystem Logout(TDAsystem system){
         if(system.getUserlogin()!=null){
@@ -127,6 +171,12 @@ public class TDAsystem {
     
     /*////////////////////////////////////Funciones get/////////////////////////////////////*/
 
+    
+    /**
+    *
+    *   metodos get de system
+    *
+    */
     public String getName() {
         return name;
     }
@@ -146,6 +196,14 @@ public class TDAsystem {
     public TDAuser getUserlogin() {
         return userlogin;
     }
+    
+    
+    /**
+    * Metodo imprimir_Systems con dominio como lista de TDAsystems
+    * y con el recorrido como void
+    *
+    *Metodo que imprime el nombre de cada system en la lista de systems
+    */
     
     static void imprimir_Systems(ArrayList<TDAsystem> systems){
         System.out.println("Keys: ");
